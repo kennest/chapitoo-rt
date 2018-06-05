@@ -2,7 +2,7 @@ package com.capsule.chapitoolab.Controllers.web;
 
 
 import com.capsule.chapitoolab.Services.UserService;
-import com.capsule.chapitoolab.models.User;
+import com.capsule.chapitoolab.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.core.Authentication;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.Set;
 
 
 @Controller
@@ -74,13 +75,24 @@ public class AdminController {
         //On recupere l'agence du user
         model.addObject("agence", user.getAgence());
 
+        //Nombre de logements de l'agence
         Integer nbLogements=user.getAgence().getLogements().size();
+
+        //nombre d'abonnes de l'agence
         Integer nbAbonnes=user.getAgence().getAbonnes().size();
+
+        //Nombre d'interesses
+        Agence agence=user.getAgence();
+        Integer nbInteresses=0;
+        for (Locataire locataire : agence.getAbonnes()) {
+            nbInteresses=+locataire.getPanier().size();
+        }
 
         model.addObject("userName", user.getFirstname() + " " + user.getLastname());
 
         model.addObject("nb_logements",nbLogements);
         model.addObject("nb_abonnes",nbAbonnes);
+        model.addObject("nb_interesses",nbInteresses);
 
         model.setViewName("/home");
 

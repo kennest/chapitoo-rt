@@ -26,7 +26,7 @@ public class Logement {
     private Adresse adresse;
 
     @ManyToMany
-    private Set<Locataire> interesses;
+    private Set<Locataire> locataires;
 
     //GETTERS SETTERS
 
@@ -94,11 +94,11 @@ public class Logement {
         this.agence = agence;
     }
 
-    public Set<Locataire> getInteresses() {
-        return interesses;
+    public Set<Locataire> getLocataires() {
+        return locataires;
     }
 
-    public void setInteresses(Set<Locataire> interesses) {
-        this.interesses = interesses;
+    public void setLocataires(Set<Locataire> locataires) {
+        this.locataires = locataires;
     }
 }

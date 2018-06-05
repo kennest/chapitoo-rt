@@ -22,7 +22,7 @@ public class Locataire {
     @Embedded
     private Adresse adresse;
 
-    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "interesses")
+    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "locataires")
     private Set<Logement> panier;
     //GETTERS SETTERS
 

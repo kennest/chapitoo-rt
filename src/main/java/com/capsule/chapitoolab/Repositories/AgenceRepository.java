@@ -12,4 +12,7 @@ public interface AgenceRepository extends JpaRepository<Agence,Long> {
     @Query("select a from Agence a " + " where a.email = ?1")
     Agence findUserWithEmail(String email);
 
+    @Query("select  c from Commune c")
+    Commune mostWantedCommune();
+
 }
