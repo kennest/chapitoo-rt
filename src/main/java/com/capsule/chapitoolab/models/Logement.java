@@ -25,6 +25,9 @@ public class Logement {
     @Embedded
     private Adresse adresse;
 
+    @ManyToMany
+    private Set<Locataire> interesses;
+
     //GETTERS SETTERS
 
     public Integer getId() {
@@ -89,5 +92,13 @@ public class Logement {
 
     public void setAgence(Agence agence) {
         this.agence = agence;
+    }
+
+    public Set<Locataire> getInteresses() {
+        return interesses;
+    }
+
+    public void setInteresses(Set<Locataire> interesses) {
+        this.interesses = interesses;
     }
 }

@@ -3,7 +3,8 @@ package com.capsule.chapitoolab.models;
 public class ChatMessage {
     private MessageType type;
     private String content;
-    private String sender;
+    private Integer sender;
+    private Integer receiver;
 
     public enum MessageType {
         CHAT,
@@ -27,11 +28,11 @@ public class ChatMessage {
         this.content = content;
     }
 
-    public String getSender() {
+    public Integer getSender() {
         return sender;
     }
 
-    public void setSender(String sender) {
+    public void setSender(Integer sender) {
         this.sender = sender;
     }
 }

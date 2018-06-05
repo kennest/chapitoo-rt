@@ -19,7 +19,11 @@ public class Locataire {
     @ManyToMany(mappedBy = "abonnes",fetch = FetchType.LAZY)
     private Set<Agence> favoris;
 
+    @Embedded
+    private Adresse adresse;
 
+    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "interesses")
+    private Set<Logement> panier;
     //GETTERS SETTERS
 
     public Integer getId() {
@@ -84,5 +88,21 @@ public class Locataire {
 
     public void setFavoris(Set<Agence> favoris) {
         this.favoris = favoris;
+    }
+
+    public Adresse getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(Adresse adresse) {
+        this.adresse = adresse;
+    }
+
+    public Set<Logement> getPanier() {
+        return panier;
+    }
+
+    public void setPanier(Set<Logement> panier) {
+        this.panier = panier;
     }
 }

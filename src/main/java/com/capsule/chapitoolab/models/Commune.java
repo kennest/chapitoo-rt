@@ -16,6 +16,10 @@ public class Commune {
 
     private Point geocoordonnees;
 
+    @OneToMany()
+    private Set<Locataire> locataires;
+    //GETTERS SETTERS
+
     public Integer getId() {
         return id;
     }

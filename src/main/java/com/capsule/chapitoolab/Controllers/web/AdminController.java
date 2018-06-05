@@ -73,10 +73,15 @@ public class AdminController {
 
         //On recupere l'agence du user
         model.addObject("agence", user.getAgence());
+
         Integer nbLogements=user.getAgence().getLogements().size();
+        Integer nbAbonnes=user.getAgence().getAbonnes().size();
+
         model.addObject("userName", user.getFirstname() + " " + user.getLastname());
 
         model.addObject("nb_logements",nbLogements);
+        model.addObject("nb_abonnes",nbAbonnes);
+
         model.setViewName("/home");
 
         return model;
